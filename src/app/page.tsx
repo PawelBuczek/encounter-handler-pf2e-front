@@ -1,18 +1,23 @@
-import Image from 'next/image'
+'use client'
+
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
+interface Encounter {
+  name: string;
+  description: string;
+  timeCreated: string;
+}
 
 export default function Home() {
-  const encounters = [
-    {
-      name: 'enc1',
-      description: 'most epic fight ever',
-      timeCreated: '2023-07-12T11:28:54.3676177',
-    },
-    {
-      name: 'enc2',
-      description: 'less epic fight',
-      timeCreated: '2023-08-12T11:28:54.3676177',
-    }
-  ];
+  const [encounters, setEncounters] = useState<Encounter[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8080/encounter')
+      .then((response) => response.json())
+      .then((data) => setEncounters(data))
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <main>
