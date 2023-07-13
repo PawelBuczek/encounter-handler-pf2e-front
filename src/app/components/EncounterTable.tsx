@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './EncounterTable.css';
 
 interface Encounter {
   name: string;
@@ -51,21 +50,22 @@ const EncounterTable: React.FC = () => {
   });
 
   return (
-    <main>
-      <div className="encounter-table-container">
-        <h1 className="table-heading">Encounters</h1>
-        <table className="encounter-table">
+    <main self-center>
+      <div className="self-center w-500 mx-auto p-20">
+        <h1 className="text-3xl font-bold mb-6">Encounters</h1>
+        <table className="border-collapse">
           <thead>
             <tr>
               {['name', 'description', 'timeCreated'].map((field) => (
                 <th
                   key={field}
                   onClick={() => handleSort(field as keyof Encounter)}
+                  className="bg-gray-100 text-gray-700 font-bold py-3 px-4 cursor-pointer"
                 >
                   <span>{field}</span>
                   {sortConfig.field === field && (
-                    <span className={`sort-icon ${sortConfig.direction}`}>
-                      {sortConfig.direction === 'ascending' ? '▲' : '▼'}
+                    <span className={`ml-2 ${sortConfig.direction === 'ascending' ? 'rotate-180' : ''}`}>
+                      ▲
                     </span>
                   )}
                 </th>
@@ -74,9 +74,12 @@ const EncounterTable: React.FC = () => {
           </thead>
           <tbody>
             {sortedEncounters.map((encounter) => (
-              <tr key={encounter.timeCreated}>
+              <tr key={encounter.timeCreated} className="bg-gray-900">
                 {['name', 'description', 'timeCreated'].map((field) => (
-                  <td key={field}>
+                  <td
+                    key={field}
+                    className="py-3 px-4 border-b border-gray-700"
+                  >
                     {field === 'timeCreated'
                       ? new Date(encounter[field]).toLocaleString()
                       : encounter[field]}

@@ -9,7 +9,7 @@ import EncounterTable from './components/EncounterTable';
 export default function Home() {
 
   return (
-    <main>
+    <main self-center content-center>
       <EncounterTable />
     </main>
   );
