@@ -1,0 +1,42 @@
+.encounter-table-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .table-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .encounter-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .encounter-table th {
+    background-color: #f7fafc;
+    color: #4a5568;
+    font-weight: bold;
+    padding: 12px;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .encounter-table th .sort-icon {
+    margin-left: 5px;
+  }
+  
+  .encounter-table td {
+    padding: 12px;
+    border-bottom: 1px solid #edf2f7;
+  }
+  
+  .encounter-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .encounter-table tr {
+    background-color: #191a1b;
+  }
