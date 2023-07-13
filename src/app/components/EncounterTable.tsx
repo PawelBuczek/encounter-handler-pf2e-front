@@ -50,9 +50,9 @@ const EncounterTable: React.FC = () => {
   });
 
   return (
-    <main self-center>
-      <div className="self-center w-500 mx-auto p-20">
-        <h1 className="text-3xl font-bold mb-6">Encounters</h1>
+    <main>
+      <div className="grid place-items-center">
+        <h1 className="text-3xl font-bold mb-6 my-5">Encounters</h1>
         <table className="border-collapse">
           <thead>
             <tr>
@@ -64,8 +64,8 @@ const EncounterTable: React.FC = () => {
                 >
                   <span>{field}</span>
                   {sortConfig.field === field && (
-                    <span className={`ml-2 ${sortConfig.direction === 'ascending' ? 'rotate-180' : ''}`}>
-                      ▲
+                    <span className={`sort-icon ${sortConfig.direction}`}>
+                      {sortConfig.direction === 'ascending' ? '▲' : '▼'}
                     </span>
                   )}
                 </th>
