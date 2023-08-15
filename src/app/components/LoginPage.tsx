@@ -23,21 +23,42 @@ function LoginPage() {
   };
 
   if (loggedIn) {
-    return <h1>Welcome, {username}!</h1>;
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <h1 className="text-3xl">Welcome, {username}!</h1>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h1>Login Form</h1>
-      <div>
-        <label>Username: </label>
-        <input type="text" value={username} onChange={handleUsernameChange} />
+    <div className="h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 shadow-md rounded-md">
+        <h1 className="text-2xl text-black mb-4">Login Form</h1>
+        <div className="mb-4">
+          <label className="block text-gray-600">Username:</label>
+          <input
+            className="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+            type="text"
+            value={username}
+            onChange={handleUsernameChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-600">Password:</label>
+          <input
+            className="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+        </div>
+        <button
+          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+          onClick={handleLogin}
+        >
+          Login
+        </button>
       </div>
-      <div>
-        <label>Password: </label>
-        <input type="password" value={password} onChange={handlePasswordChange} />
-      </div>
-      <button onClick={handleLogin}>Login</button>
     </div>
   );
 }
