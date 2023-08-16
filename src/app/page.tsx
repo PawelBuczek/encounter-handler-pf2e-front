@@ -1,16 +1,17 @@
 'use client'
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import EncounterTable from './components/EncounterTable';
+import LoginPage from './components/LoginPage';
 
 
 export default function Home() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Initial state is not logged in
 
   return (
     <main>
-      <EncounterTable />
+      {/* {isLoggedIn ? <EncounterTable /> : <LoginPage />} */}
+      <LoginPage />
     </main>
   );
 }
