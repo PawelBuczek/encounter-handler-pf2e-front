@@ -12,6 +12,7 @@ export default function Home() {
     <main>
       {/* {isLoggedIn ? <EncounterTable /> : <LoginPage />} */}
       <LoginPage />
+      <EncounterTable />
     </main>
   );
 }
