@@ -4,13 +4,12 @@ import LoginPage from './LoginPage';
 
 function App() {
   return (
-    null
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/login" element={<LoginPage />} />
-    //     <PrivateRoute path="/" element={<MainPage />} />
-    //   </Routes>
-    // </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <PrivateRoute path="/" element={<MainPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
