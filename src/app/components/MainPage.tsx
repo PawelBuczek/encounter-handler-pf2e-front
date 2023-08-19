@@ -7,14 +7,18 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <PrivateRoute path="/" element={<MainPage />} />
+        <Route path="/" element={<PrivateRouteWrapper />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
-function PrivateRoute({ element }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // You need to implement your authentication logic
+interface PrivateRouteProps {
+  children: React.ReactNode;
+}
+
+function PrivateRoute({ children }: PrivateRouteProps) {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true); // You need to implement your authentication logic
 
   // Check for a 401 Unauthorized response or any other authentication logic here
   useEffect(() => {
@@ -22,7 +26,11 @@ function PrivateRoute({ element }) {
     setIsAuthenticated(false);
   }, []);
 
-  return isAuthenticated ? element : <Navigate to="/login" />;
+  return isAuthenticated ? <>{children}</> : <Navigate to="/login" />;
+}
+
+function PrivateRouteWrapper() {
+  return <PrivateRoute><MainPage /></PrivateRoute>;
 }
 
 function MainPage() {
