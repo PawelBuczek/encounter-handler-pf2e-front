@@ -18,7 +18,7 @@ interface PrivateRouteProps {
 }
 
 function PrivateRoute({ children }: PrivateRouteProps) {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true); // You need to implement your authentication logic
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false); // You need to implement your authentication logic
 
   // Check for a 401 Unauthorized response or any other authentication logic here
   useEffect(() => {
