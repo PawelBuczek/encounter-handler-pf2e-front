@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import router, { useRouter } from 'next/router';
+import router from 'next/router';
 
 interface Encounter {
   name: string;
@@ -27,6 +27,7 @@ const EncounterTable: React.FC = () => {
   useEffect(() => {
     fetch('http://localhost:8080/encounter')
       .then((response) => {
+        // debugger;
         if (response.status === 401) {
           router.push('/login');
         } else if (response.json() == null){
