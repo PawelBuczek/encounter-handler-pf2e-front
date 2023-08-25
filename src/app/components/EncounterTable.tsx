@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import router from 'next/router';
 
 interface Encounter {
   name: string;
@@ -27,11 +26,8 @@ const EncounterTable: React.FC = () => {
   useEffect(() => {
     fetch('http://localhost:8080/encounter')
       .then((response) => {
-        // debugger;
         if (response.status === 401) {
-          router.push('/login');
-        } else if (response.json() == null){
-          return [];
+          window.location.href = '/login'; // Redirect to the login page
         } else {
           return response.json();
         }
