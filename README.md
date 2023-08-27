@@ -1,6 +1,9 @@
 This is a [Next.js](https://nextjs.org/) (React) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).  
 It is using options: TypeScript, ESLint, Tailwind CSS, 'src/' directory, App Router
 
+Currently plan is to use OAuth 2.0 (with JWT tokens) as a standard authentication method.
+(backend should support Basic Auth, OAuth 2.0 and API Keys as authentication methods)
+
 ## Getting Started
 
 First, run the development server:
