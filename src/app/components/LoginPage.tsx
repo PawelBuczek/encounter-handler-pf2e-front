@@ -15,6 +15,7 @@ function LoginPage() {
 
   const handleLogin = () => {
     // Simulate a login check
+    // need to send request to http://localhost:8080/login after this endpoint is done (OAuth 2.0)
     if (username === 'user' && password === 'password') {
       setLoggedIn(true);
     } else {
