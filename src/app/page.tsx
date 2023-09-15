@@ -1,16 +1,24 @@
 'use client'
-import {options} from "../app/api/auth"
-import {getServerSession} from "next-auth/next"
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import EncounterTable from './components/EncounterTable';
-
-async function page(){
-  const session = await getServerSession(options)
-  console.log(session.user)
-}
+import { options } from "../app/api/auth/route";
+import { getServerSession } from "next-auth/next";
 
 export default function Home() {
+  useEffect(() => {
+    async function page() {
+      try {
+        const session: any = await getServerSession(options);
+        console.log(session.user);
+      } catch (error) {
+        console.error("Error fetching session:", error);
+      }
+    }
+
+    // Call the page function when the component mounts
+    page();
+  }, []);
 
   return (
     <main>
@@ -18,4 +26,3 @@ export default function Home() {
     </main>
   );
 }
-
